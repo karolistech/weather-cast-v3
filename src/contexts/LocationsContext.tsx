@@ -7,6 +7,9 @@ import { fetchIpLocation } from "@/api/ipLocation";
 type LocationsContext = {
   locations: Locations;
   setLocation: (location: Location) => void;
+  pinLocation: () => void;
+  saveLocation: () => void;
+  removeLocation: (id: number) => void;
 };
 
 type State = Locations | null;
@@ -14,6 +17,9 @@ type State = Locations | null;
 type Action =
   | { type: "INIT"; locations: Locations }
   | { type: "SET"; location: Location }
+  | { type: "PIN" }
+  | { type: "SAVE" }
+  | { type: "REMOVE"; id: number };
 
 const LocationsContext = createContext<LocationsContext | null>(null);
 
@@ -24,6 +30,19 @@ function locationsReducer(state: State, action: Action): State {
   switch (action.type) {
     case "SET":
       return { ...state, current: action.location };
+
+    case "PIN":
+      return { ...state, pinned: state.current };
+
+    case "SAVE":
+      const saved = state.saved.some(location => location.id === state.current.id);
+
+      if (saved === true) return state;
+
+      return { ...state, saved: [...state.saved, state.current] };
+
+    case "REMOVE":
+      return { ...state, saved: state.saved.filter(location => location.id !== action.id) };
   }
 }
 
@@ -59,6 +78,9 @@ export function LocationsProvider({ children }: { children: ReactNode }) {
   const value: LocationsContext = {
     locations: locations,
     setLocation: location => dispatch({ type: "SET", location: location }),
+    pinLocation: () => dispatch({ type: "PIN" }),
+    saveLocation: () => dispatch({ type: "SAVE" }),
+    removeLocation: id => dispatch({ type: "REMOVE", id })
   };
 
   return (

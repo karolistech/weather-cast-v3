@@ -8,7 +8,7 @@ type LocationsMenuProps = {
 };
 
 export default function LocationsMenu({ closeLocationsMenu }: LocationsMenuProps) {
-  const { locations } = useLocations();
+  const { locations, setLocation, pinLocation, saveLocation, removeLocation } = useLocations();
 
   return (
     <div className="locations-menu">
@@ -32,13 +32,13 @@ export default function LocationsMenu({ closeLocationsMenu }: LocationsMenuProps
             </span>
 
             <div className="locations-menu__current-location-actions">
-              <button className="locations-menu__button locations-menu__button--save">
+              <button className="locations-menu__button locations-menu__button--save" onClick={saveLocation}>
                 <svg className="locations-menu__icon">
                   <use href={`${uiIcons}#save`} />
                 </svg>
               </button>
 
-              <button className="locations-menu__button locations-menu__button--pin">
+              <button className="locations-menu__button locations-menu__button--pin" onClick={pinLocation}>
                 <svg className="locations-menu__icon">
                   <use href={`${uiIcons}#pin`} />
                 </svg>
@@ -50,7 +50,7 @@ export default function LocationsMenu({ closeLocationsMenu }: LocationsMenuProps
         <div className="locations-menu__section">
           <h3 className="locations-menu__section-title">Pinned Location</h3>
 
-          <button className="locations-menu__pinned-location-button">
+          <button className="locations-menu__pinned-location-button" onClick={() => setLocation(locations.pinned)}>
             {locations.pinned.name}
           </button>
         </div>
@@ -61,11 +61,11 @@ export default function LocationsMenu({ closeLocationsMenu }: LocationsMenuProps
           <ul className="locations-menu__saved-locations">
             {locations.saved.map(location => (
               <li key={location.id} className="locations-menu__saved-location">
-                <button className="locations-menu__saved-location-button">
+                <button className="locations-menu__saved-location-button" onClick={() => setLocation(location)}>
                   {location.name}
                 </button>
 
-                <button className="locations-menu__button locations-menu__button--remove">
+                <button className="locations-menu__button locations-menu__button--remove" onClick={() => removeLocation(location.id)}>
                   <svg className="locations-menu__icon">
                     <use href={`${uiIcons}#clear`} />
                   </svg>

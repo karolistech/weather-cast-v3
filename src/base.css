@@ -48,6 +48,7 @@ body {
 
 body:has(.locations-menu) {
   overflow: hidden;
+  touch-action: none;
 }
 
 button {
