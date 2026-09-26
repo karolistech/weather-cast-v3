@@ -44,7 +44,7 @@ body {
   font-family: Poppins, system-ui;
 }
 
-html:has(.locations-menu) {
+html.no-scroll {
   overflow: hidden;
   touch-action: none;
 }

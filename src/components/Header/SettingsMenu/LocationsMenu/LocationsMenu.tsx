@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import { useLocations } from "@/contexts/LocationsContext";
 
 import "./LocationsMenu.css";
@@ -9,6 +11,11 @@ type LocationsMenuProps = {
 
 export default function LocationsMenu({ closeLocationsMenu }: LocationsMenuProps) {
   const { locations, setLocation, pinLocation, saveLocation, removeLocation } = useLocations();
+
+  useEffect(() => {
+    document.documentElement.classList.add("no-scroll");
+    return () => document.documentElement.classList.remove("no-scroll");
+  }, []);
 
   return (
     <div className="locations-menu">
