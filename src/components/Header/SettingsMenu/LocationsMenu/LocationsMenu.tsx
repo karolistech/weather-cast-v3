@@ -11,8 +11,10 @@ export default function LocationsMenu({ closeLocationsMenu }: LocationsMenuProps
   const { locations, setLocation, pinLocation, saveLocation, removeLocation } = useLocations();
 
   return (
-    <div className="locations-menu">
-      <div className="locations-menu__content">
+    <>
+      <div className="locations-menu__backdrop" />
+
+      <div className="locations-menu">
         <header className="locations-menu__header">
           <h2 className="locations-menu__title">Locations Menu</h2>
 
@@ -93,6 +95,6 @@ export default function LocationsMenu({ closeLocationsMenu }: LocationsMenuProps
           </ul>
         </div>
       </div>
-    </div>
+    </>
   );
 }

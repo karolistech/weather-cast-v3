@@ -1,17 +1,40 @@
-.locations-menu {
+/* .locations-menu {
   position: fixed;
   inset: 0;
   z-index: 3;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.1);
+} */
+
+.locations-menu__backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 3;
 }
 
-.locations-menu__content {
+/* .locations-menu__content {
   width: min(95%, 350px);
   max-height: calc(100vh - 1rem);
   padding-bottom: 0.5rem;
+  overflow-y: auto;
+  background-color: var(--color-background);
+  border-radius: 8px;
+  box-shadow: var(--color-shadow);
+  scrollbar-width: thin;
+} */
+
+.locations-menu {
+  position: fixed;
+  width: min(95%, 350px);
+  max-height: calc(100vh - 1rem);
+  padding-bottom: 0.5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
   overflow-y: auto;
   background-color: var(--color-background);
   border-radius: 8px;
