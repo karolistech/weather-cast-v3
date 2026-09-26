@@ -1,5 +1,7 @@
 import { useLocations } from "@/contexts/LocationsContext";
 
+import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
+
 import "./LocationsMenu.css";
 import uiIcons from "@/assets/icons/ui-icons/ui-icons.svg";
 
@@ -9,6 +11,8 @@ type LocationsMenuProps = {
 
 export default function LocationsMenu({ closeLocationsMenu }: LocationsMenuProps) {
   const { locations, setLocation, pinLocation, saveLocation, removeLocation } = useLocations();
+
+  useLockBodyScroll(true);
 
   return (
     <div className="locations-menu">
