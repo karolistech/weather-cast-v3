@@ -17,6 +17,8 @@
   border-radius: 8px;
   box-shadow: var(--color-shadow);
   scrollbar-width: thin;
+
+  overscroll-behavior: contain;
 }
 
 .locations-menu__header {
