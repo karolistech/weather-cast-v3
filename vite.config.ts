@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "/weather-cast/",
+  base: "/weather-cast-v3/",
 
   build: {
     assetsInlineLimit: 0
