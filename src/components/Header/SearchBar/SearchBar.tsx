@@ -12,6 +12,7 @@ import uiIcons from "@/assets/icons/ui-icons/ui-icons.svg";
 export default function SearchBar() {
   const [query, setQuery] = useState("");
   const [locations, setLocations] = useState<GeocodedLocation[]>([]);
+
   const { setLocation } = useLocations();
 
   async function handleSearch(e: ChangeEvent<HTMLInputElement>) {
@@ -51,7 +52,7 @@ export default function SearchBar() {
 
       {query !== "" && (
         <button className="search-bar__clear-button" onClick={clearSearch}>
-          <svg className="search-bar__icon search-bar__icon--clear">
+          <svg className="search-bar__icon">
             <use href={`${uiIcons}#clear`} />
           </svg>
         </button>

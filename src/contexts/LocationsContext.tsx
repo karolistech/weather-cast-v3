@@ -63,7 +63,7 @@ export function LocationsProvider({ children }: { children: ReactNode }) {
 
         dispatch({
           type: "INIT",
-          locations: { current: location, pinned: location, saved: [location, location, location, location, location, location, location, location, location, location, location, location, location, location] }
+          locations: { current: location, pinned: location, saved: [] }
         });
       } catch (error) {
         console.error(error);
@@ -80,7 +80,7 @@ export function LocationsProvider({ children }: { children: ReactNode }) {
     setLocation: location => dispatch({ type: "SET", location: location }),
     pinLocation: () => dispatch({ type: "PIN" }),
     saveLocation: () => dispatch({ type: "SAVE" }),
-    removeLocation: id => dispatch({ type: "REMOVE", id })
+    removeLocation: id => dispatch({ type: "REMOVE", id: id })
   };
 
   return (

@@ -6,7 +6,6 @@
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.25);
-  overscroll-behavior: contain;
 }
 
 .locations-menu__content {
@@ -37,6 +36,7 @@
   height: 24px;
   background: none;
   border: none;
+  color: var(--color-icon-button);
 }
 
 .locations-menu__button--close {
@@ -49,7 +49,6 @@
 .locations-menu__icon {
   width: 100%;
   height: 100%;
-  color: var(--color-icon);
 }
 
 .locations-menu__section {
@@ -104,8 +103,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  scrollbar-width: thin;
   list-style-type: none;
+  scrollbar-width: thin;
 }
 
 .locations-menu__saved-location {
@@ -130,4 +129,44 @@
 
 .locations-menu__button--remove {
   margin-right: 0.5rem;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .locations-menu__button--save:active {
+    color: var(--color-green);
+  }
+
+  .locations-menu__button--pin:active {
+    color: var(--color-amber);
+  }
+
+  .locations-menu__pinned-location-button:active {
+    background-color: var(--color-touch);
+  }
+
+  .locations-menu__saved-location:active {
+    background-color: var(--color-touch);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .locations-menu__button--save:hover {
+    color: var(--color-green);
+  }
+
+  .locations-menu__button--pin:hover {
+    color: var(--color-amber);
+  }
+
+  .locations-menu__button--remove:hover {
+    color: var(--color-red);
+  }
+
+  .locations-menu__pinned-location-button:hover {
+    background-color: var(--color-hover);
+  }
+
+  .locations-menu__saved-location:hover {
+    background-color: var(--color-hover);
+  }
 }

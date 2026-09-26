@@ -15,6 +15,9 @@
   --color-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.15);
   --color-hover: #ddd;
   --color-touch: #ddd;
+  --color-red: #d33;
+  --color-green: #295;
+  --color-amber: #da3;
 }
 
 :root[data-theme="dark"] {
@@ -30,12 +33,7 @@
   --color-touch: #333;
 }
 
-html {
-  scrollbar-gutter: stable;
-}
-
 *, *::before, *::after {
-  /* border: 1px solid; */
   box-sizing: border-box;
   margin: 0;
   padding: 0;
