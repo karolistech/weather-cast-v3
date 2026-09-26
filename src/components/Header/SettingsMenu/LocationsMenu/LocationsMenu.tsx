@@ -1,8 +1,4 @@
-import { useRef } from "react";
-
 import { useLocations } from "@/contexts/LocationsContext";
-
-import { useScrollLock } from "@/hooks/useLockBodyScroll";
 
 import "./LocationsMenu.css";
 import uiIcons from "@/assets/icons/ui-icons/ui-icons.svg";
@@ -14,11 +10,8 @@ type LocationsMenuProps = {
 export default function LocationsMenu({ closeLocationsMenu }: LocationsMenuProps) {
   const { locations, setLocation, pinLocation, saveLocation, removeLocation } = useLocations();
 
-  const overlayRef = useRef<HTMLDivElement>(null);
-  useScrollLock(overlayRef, true);
-
   return (
-    <div className="locations-menu" ref={overlayRef}>
+    <div className="locations-menu">
       <div className="locations-menu__content">
         <header className="locations-menu__header">
           <h2 className="locations-menu__title">Locations Menu</h2>
