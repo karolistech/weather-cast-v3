@@ -44,6 +44,11 @@ body {
   font-family: Poppins, system-ui;
 }
 
+body:has(.locations-menu) {
+  overflow: hidden;
+  touch-action: none;
+}
+
 button {
   -webkit-tap-highlight-color: transparent;
   font-family: inherit;

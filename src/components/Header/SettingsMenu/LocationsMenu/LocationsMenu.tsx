@@ -2,7 +2,6 @@ import { useLocations } from "@/contexts/LocationsContext";
 
 import "./LocationsMenu.css";
 import uiIcons from "@/assets/icons/ui-icons/ui-icons.svg";
-import { useScrollLock } from "@/hooks/useScrollLock";
 
 type LocationsMenuProps = {
   closeLocationsMenu: () => void;
@@ -10,8 +9,6 @@ type LocationsMenuProps = {
 
 export default function LocationsMenu({ closeLocationsMenu }: LocationsMenuProps) {
   const { locations, setLocation, pinLocation, saveLocation, removeLocation } = useLocations();
-
-  useScrollLock(true);
 
   return (
     <>
